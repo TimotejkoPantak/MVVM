@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vm="clr-namespace:MVVM.ViewModels"
+             x:Class="MVVM.Views.MainPage"
+             BackgroundColor="DarkOrange">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label
+            x:Name="bpmLabel"
+            Grid.Row ="1"
+            Text ="{Binding BPM, StringFormat='{0:N0}'}"
+            FontSize="Header"
+            HorizontalOptions="Center"
+            TextColor="Black"/>
+
+        <Button
+            Text="CLICK"
+            Grid.Row="2"
+            HorizontalOptions="Center"
+            WidthRequest="200"
+            Command="{Binding TapCommand}"
+            BackgroundColor="Black"
+            TextColor="White"/>
+
+    </Grid>
+
+
+
+</ContentPage>
